@@ -1,4 +1,4 @@
-#include "stdafx.h"
+//#include "stdafx.h"
 #include <iostream>
 #include <stdexcept>
 #include <cmath>
@@ -10,21 +10,22 @@ using namespace std;
 class Rational
 {
 private:
-    int num, den;
+    int num, den; // den is unsigned
 public:
-    Rational(int num_, int den_) //����������� ������
+    Rational(int num_, int den_) //Конструктор класса
 	{
-		this->num = num_; 
+		this->num = num_; // список инициализаторов
 		this->den = den_;
+		// проверить на ноль? сократить?
 	}
 	
 	~Rational() {}
 	
-	//���������� ���������� >> � <<
+	//Перегрузка операторов >> и <<
 	friend ostream& operator<< (ostream& , Rational const&);
     friend istream& operator>> (istream& , Rational&);
     
-	//���������� ���������� + � -
+	//Перегрузка операторов + и -
 	friend Rational const operator+ (Rational const&, Rational const&);
     friend Rational const operator* (Rational const&, Rational const&);   
 
@@ -41,7 +42,7 @@ Rational const operator+ (Rational const& L, Rational const& R)
     int a,b,c;
 	a = L.num * R.den + R.num * L.den;
 	b = L.den * R.den;
-	c = Euclid(a,b);
+	c = Euclid(a,b); // лучше бы это делал конструктор
 	return Rational(a/c, b/c);
 }
  
