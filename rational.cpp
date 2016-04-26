@@ -12,7 +12,7 @@ class Rational
 private:
     int num, den;
 public:
-    Rational(int num_, int den_) //Конструктор класса
+    Rational(int num_, int den_) //РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР°
 	{
 		this->num = num_; 
 		this->den = den_;
@@ -20,11 +20,11 @@ public:
 	
 	~Rational() {}
 	
-	//Перегрузка операторов >> и <<
+	//РџРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂРѕРІ >> Рё <<
 	friend ostream& operator<< (ostream& , Rational const&);
     friend istream& operator>> (istream& , Rational&);
     
-	//Перегрузка операторов + и -
+	//РџРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂРѕРІ + Рё -
 	friend Rational const operator+ (Rational const&, Rational const&);
     friend Rational const operator* (Rational const&, Rational const&);   
 
